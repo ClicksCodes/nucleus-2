@@ -27,6 +27,6 @@
       "noImplicitReturns": false,
       "checkJs": true
   },
-  "include": ["src/**/*", "src/*", "src/config/main.d.ts", "src/config/main.ts"],
-  "exclude": ["src/Unfinished/**/*", "src/reflex/nsfwjs/**/*"]
+  "include": ["src/**/*", "src/*"],
+  "exclude": []
 }
