@@ -1,0 +1,23 @@
+{
+  "name": "tsbot",
+  "version": "0.0.1",
+  "description": "Baby's first TypeScript bot",
+  "main": "dist/index.js",
+  "type": "module",
+  "license": "MPL-2.0",
+  "scripts": {
+    "build": "tsc",
+    "start": "dotenv -- node dist/index.js",
+    "dev": "yarn build && yarn start"
+  },
+  "devDependencies": {
+    "discord.js": "^14.16.2",
+    "dotenv": "^16.4.5",
+    "drizzle-kit": "^0.24.2",
+    "drizzle-orm": "^0.33.0",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "dotenv-cli": "^7.4.2"
+  }
+}
