@@ -1,3 +1,6 @@
 {
-    "developmentServer": "864185037078790195"
+    "developmentServer": "864185037078790195",
+    "logLevel": "debug",
+
+    "eventsPath": "events"
 }

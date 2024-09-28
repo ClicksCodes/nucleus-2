@@ -1,15 +1,22 @@
 import client from '@/utils/client.js';
 import { Events } from 'discord.js';
+import logs from '@/utils/logger.js';
+import handle from './utils/errorHandler.js';
 
 
 client.once(Events.ClientReady, () => {
-    console.log(`Logged in as ${client.user?.username}`);
+    logs.success("Logged in as " + client.user?.globalName);
 
     client.registerCommands();
+    client.registerEvents();
 });
 
 client.on(Events.InteractionCreate, async (interaction) => {
     await client.commandHandler(interaction);
+});
+
+process.on('unhandledRejection', (error: Error) => {
+    handle(error);
 });
 
 client.login(process.env["DISCORD_TOKEN"]);
