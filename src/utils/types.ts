@@ -5,7 +5,7 @@ import type {
     SlashCommandOptionsOnlyBuilder,
     CommandInteraction,
     AutocompleteInteraction,
-    CommandInteractionOptionResolver
+    ChatInputCommandInteraction
 } from "discord.js";
 
 type extendedCommand = {
@@ -14,13 +14,9 @@ type extendedCommand = {
         | SlashCommandSubcommandBuilder
         | SlashCommandSubcommandGroupBuilder
         | SlashCommandOptionsOnlyBuilder;
-    callback: (interaction: ClientCommandInteraction) => Promise<void>;
+    callback: (interaction: ChatInputCommandInteraction) => Promise<void>;
     check?: (interaction: CommandInteraction) => Promise<boolean>;
     autocomplete?: (interaction: AutocompleteInteraction) => Promise<void>;
 };
 
-type ClientCommandInteraction = CommandInteraction & {
-    options: CommandInteractionOptionResolver;
-};
-
-export type { extendedCommand, ClientCommandInteraction };
+export type { extendedCommand };

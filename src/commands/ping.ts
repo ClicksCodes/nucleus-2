@@ -1,7 +1,7 @@
-import { ClientCommandInteraction, extendedCommand } from "@/utils/types.js";
-import { SlashCommandBuilder } from "discord.js";
+import { extendedCommand } from "@/utils/types.js";
+import { ChatInputCommandInteraction, SlashCommandBuilder } from "discord.js";
 
-const callback = async (interaction: ClientCommandInteraction) => {
+const callback = async (interaction: ChatInputCommandInteraction) => {
     const isEphemeral = interaction.options.getBoolean("ephemeral") || false;
     const extraText = interaction.options.getString("message") || "";
 

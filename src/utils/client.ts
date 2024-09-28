@@ -1,7 +1,13 @@
-import { Client, Interaction, ApplicationCommandDataResolvable, GatewayIntentBits } from "discord.js";
+import {
+    Client,
+    Interaction,
+    ApplicationCommandDataResolvable,
+    GatewayIntentBits,
+    ChatInputCommandInteraction
+} from "discord.js";
 import configFile from "../../config.json" with { type: "json" };
 import fs from "fs";
-import { ClientCommandInteraction, extendedCommand } from "@/utils/types.js";
+import { extendedCommand } from "@/utils/types.js";
 import logs from "@/utils/logger.js";
 
 import ping from "@/commands/ping.js";
@@ -32,7 +38,7 @@ class NucleusClient extends Client {
 
         if (this.commands[commandName]) {
             try {
-                this.commands[commandName].callback(interaction as ClientCommandInteraction);
+                this.commands[commandName].callback(interaction as ChatInputCommandInteraction);
             } catch (error) {
                 logs.error(`Error in command callback: ${error}`);
                 const messageContent = "There was an error while executing this command!";
