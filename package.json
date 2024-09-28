@@ -1,24 +1,36 @@
 {
-  "name": "nucleus-insights",
-  "version": "0.0.1",
-  "description": "Nucleus' data collection module",
-  "scripts": {
-    "build": "rm -rf dist && tsc && tsc-alias",
-    "start": "dotenv -- node dist/index.js",
-    "dev": "yarn build && yarn start"
-  },
-  "dependencies": {
-    "discord.js": "^14.16.2",
-    "dotenv": "^16.4.5",
-    "drizzle-orm": "^0.33.0",
-    "typescript": "^5.6.2"
-  },
-  "devDependencies": {
-    "dotenv-cli": "^7.4.2",
-    "drizzle-kit": "^0.24.2",
-    "tsc-alias": "^1.8.10"
-  },
-  "main": "dist/index.js",
-  "type": "module",
-  "license": "MPL-2.0"
+    "name": "nucleus-insights",
+    "version": "0.0.1",
+    "description": "Nucleus' data collection module",
+    "scripts": {
+        "rm-cache": "rm -rf dist",
+        "lint-list": "prettier --check . && eslint src",
+        "lint-fix": "eslint src --fix; prettier --write --log-level warn --cache .",
+        "build": "yarn rm-cache && tsc && tsc-alias",
+        "start": "dotenv -- node dist/index.js",
+        "dev": "yarn lint-list && yarn build && yarn start",
+        "prod": "yarn build && yarn start"
+    },
+    "dependencies": {
+        "discord.js": "^14.16.2",
+        "dotenv": "^16.4.5",
+        "drizzle-orm": "^0.33.0",
+        "eslint": "^9.11.1",
+        "typescript": "^5.6.2"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.11.1",
+        "@typescript-eslint/eslint-plugin": "^8.7.0",
+        "@typescript-eslint/parser": "^8.7.0",
+        "dotenv-cli": "^7.4.2",
+        "drizzle-kit": "^0.24.2",
+        "globals": "^15.9.0",
+        "prettier": "^3.3.3",
+        "prettier-eslint": "^16.3.0",
+        "tsc-alias": "^1.8.10",
+        "typescript-eslint": "^8.7.0"
+    },
+    "main": "dist/index.js",
+    "type": "module",
+    "license": "MPL-2.0"
 }

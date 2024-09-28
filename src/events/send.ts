@@ -6,4 +6,4 @@ export default {
     callback: async (message: Message) => {
         console.log(`Message from ${message.author.tag}: ${message.content}`);
     }
-}
+};

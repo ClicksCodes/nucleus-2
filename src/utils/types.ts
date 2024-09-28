@@ -4,14 +4,23 @@ import type {
     SlashCommandSubcommandGroupBuilder,
     SlashCommandOptionsOnlyBuilder,
     CommandInteraction,
-    AutocompleteInteraction
-} from 'discord.js';
+    AutocompleteInteraction,
+    CommandInteractionOptionResolver
+} from "discord.js";
 
 type extendedCommand = {
-    command: SlashCommandBuilder | SlashCommandSubcommandBuilder | SlashCommandSubcommandGroupBuilder | SlashCommandOptionsOnlyBuilder
-    callback: (interaction: CommandInteraction) => Promise<void>
-    check?: (interaction: CommandInteraction) => Promise<boolean>
-    autocomplete?: (interaction: AutocompleteInteraction) => Promise<void>
-}
+    command:
+        | SlashCommandBuilder
+        | SlashCommandSubcommandBuilder
+        | SlashCommandSubcommandGroupBuilder
+        | SlashCommandOptionsOnlyBuilder;
+    callback: (interaction: ClientCommandInteraction) => Promise<void>;
+    check?: (interaction: CommandInteraction) => Promise<boolean>;
+    autocomplete?: (interaction: AutocompleteInteraction) => Promise<void>;
+};
 
-export type { extendedCommand };
+type ClientCommandInteraction = CommandInteraction & {
+    options: CommandInteractionOptionResolver;
+};
+
+export type { extendedCommand, ClientCommandInteraction };
