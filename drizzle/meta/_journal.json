@@ -8,6 +8,13 @@
             "when": 1727606477996,
             "tag": "0000_sudden_shiver_man",
             "breakpoints": true
+        },
+        {
+            "idx": 1,
+            "version": "7",
+            "when": 1727626877772,
+            "tag": "0001_warm_paper_doll",
+            "breakpoints": true
         }
     ]
 }

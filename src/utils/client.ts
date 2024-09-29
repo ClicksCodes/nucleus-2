@@ -10,7 +10,8 @@ import fs from "fs";
 import { extendedCommand } from "@/utils/types.js";
 import logs from "@/utils/logger.js";
 import dbClient from "@/utils/database.js";
-import { migrate, close } from "@/utils/database.js";
+import { close } from "@/utils/database.js";
+import startAPI from "@/api/index.js";
 
 import ping from "@/commands/ping.js";
 
@@ -33,14 +34,6 @@ class NucleusClient extends Client {
         this.commands = {
             ping
         };
-
-        // If -m or --migrate is passed, migrate the database
-        if (process.argv.includes("--migrate") || process.argv.includes("-m")) {
-            (async () => {
-                await migrate();
-                logs.success("Database migrated");
-            })();
-        }
     }
 
     async teardown() {
@@ -93,12 +86,12 @@ class NucleusClient extends Client {
         const eventPath = this.config.eventsPath;
         const eventFiles = fs.readdirSync("dist/" + eventPath).filter((file) => file.endsWith(".js"));
 
-        const eventCapture = (callback: (...args: unknown[]) => Promise<void> | void) => {
+        const eventCapture = (name: string, callback: (...args: unknown[]) => Promise<void> | void) => {
             return async (...args: unknown[]): Promise<void> => {
                 try {
                     await callback(...args);
                 } catch (error) {
-                    logs.error(`Error in event callback: ${error}`);
+                    logs.error(`Error in event ${name} callback: ${error}`);
                 }
             };
         };
@@ -106,16 +99,23 @@ class NucleusClient extends Client {
         eventFiles.forEach(async (file) => {
             const event = (await import(`../${eventPath}/${file}`)).default;
             if (event.once) {
-                this.once(event.event, eventCapture(event.callback));
+                this.once(event.event, eventCapture(file, event.callback));
             } else {
-                this.on(event.event, eventCapture(event.callback));
+                this.on(event.event, eventCapture(file, event.callback));
             }
             logs.info(`Registered event ${event.event}`);
         });
         logs.success("Events registered");
+    }
+
+    async startAPI() {
+        logs.info("Starting API");
+        await startAPI(this);
+        logs.success("API started");
     }
 }
 
 const Nucleus = new NucleusClient(configFile);
 
 export default Nucleus;
+export { NucleusClient };

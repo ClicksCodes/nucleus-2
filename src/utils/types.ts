@@ -20,3 +20,10 @@ type extendedCommand = {
 };
 
 export type { extendedCommand };
+
+export const colours = {
+    red: 0xf27878,
+    yellow: 0xe5ab71,
+    green: 0x65cc76,
+    blue: 0x6576cc
+};

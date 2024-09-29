@@ -7,17 +7,20 @@
         "lint-list": "prettier --check . && eslint src",
         "lint-fix": "eslint src --fix; prettier --write --log-level warn --cache .",
         "drizzle-studio": "drizzle-kit studio",
-        "drizzle-migrate": "drizzle-kit generate && echo 'Migrations complete! Use -m (--migrate) when starting the bot to apply migrations.'",
+        "drizzle-migrate": "drizzle-kit generate",
         "build": "yarn rm-cache && tsc && tsc-alias",
         "start": "dotenv -- node dist/index.js",
         "dev": "yarn lint-fix && yarn build && yarn start",
         "prod": "yarn build && yarn start"
     },
     "dependencies": {
+        "@types/express": "^5.0.0",
+        "body-parser": "^1.20.3",
         "discord.js": "^14.16.2",
         "dotenv": "^16.4.5",
         "drizzle-orm": "^0.33.0",
         "eslint": "^9.11.1",
+        "express": "^4.21.0",
         "postgres": "^3.4.4",
         "typescript": "^5.6.2"
     },

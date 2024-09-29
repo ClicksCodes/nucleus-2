@@ -8,6 +8,7 @@ client.once(Events.ClientReady, () => {
 
     client.registerCommands();
     client.registerEvents();
+    client.startAPI();
 });
 
 client.on(Events.InteractionCreate, async (interaction) => {

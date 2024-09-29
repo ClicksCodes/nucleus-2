@@ -1,6 +1,7 @@
 {
     "developmentServer": "864185037078790195",
     "logLevel": "debug",
+    "port": 5001,
 
     "eventsPath": "events"
 }

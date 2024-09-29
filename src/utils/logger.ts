@@ -9,22 +9,29 @@ const levels = {
     fatal: 4
 };
 
+const colours = {
+    c: "\x1b[0m",
+    red: "\x1b[91m",
+    green: "\x1b[92m",
+    yellow: "\x1b[93m",
+    blue: "\x1b[94m"
+};
+
 const logLevel = (level: number) => {
     return levels[configFile.logLevel as keyof typeof levels] <= level;
 };
 
-const debug = (...messages: string[]) => logLevel(0) && console.log(`[ DEBUG] ${messages.join(" ")}`);
-const info = (...messages: string[]) => logLevel(1) && console.log(`[ INFO ] ${messages.join(" ")}`);
-const success = (...messages: string[]) => logLevel(1) && console.log(`[  OK  ] ${messages.join(" ")}`);
-const warn = (...messages: string[]) => logLevel(2) && console.log(`[ WARN ] ${messages.join(" ")}`);
-const error = (...messages: string[]) => logLevel(3) && console.log(`[ ERROR] ${messages.join(" ")}`);
-const fatal = (...messages: string[]) => logLevel(4) && console.log(`[ FATAL] ${messages.join(" ")}`);
+const debug = (...messages: string[]) =>
+    logLevel(0) && console.log(`[${colours.blue}DEBUGS${colours.c}] ${messages.join(" ")}`);
+const info = (...messages: string[]) =>
+    logLevel(1) && console.log(`[${colours.blue} INFO ${colours.c}] ${messages.join(" ")}`);
+const success = (...messages: string[]) =>
+    logLevel(1) && console.log(`[${colours.green}  OK  ${colours.c}] ${messages.join(" ")}`);
+const warn = (...messages: string[]) =>
+    logLevel(2) && console.log(`[${colours.yellow} WARN ${colours.c}] ${messages.join(" ")}`);
+const error = (...messages: string[]) =>
+    logLevel(3) && console.log(`[${colours.red}ERRORS${colours.c}] ${messages.join(" ")}`);
+const fatal = (...messages: string[]) =>
+    logLevel(4) && console.log(`[${colours.red} HALT ${colours.c}] ${messages.join(" ")}`);
 
-export default {
-    info,
-    warn,
-    error,
-    debug,
-    fatal,
-    success
-};
+export default { info, warn, error, debug, fatal, success };
