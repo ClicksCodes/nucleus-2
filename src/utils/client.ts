@@ -9,12 +9,15 @@ import configFile from "../../config.json" with { type: "json" };
 import fs from "fs";
 import { extendedCommand } from "@/utils/types.js";
 import logs from "@/utils/logger.js";
+import dbClient from "@/utils/database.js";
+import { migrate, close } from "@/utils/database.js";
 
 import ping from "@/commands/ping.js";
 
 class NucleusClient extends Client {
     config: typeof configFile;
     commands: Record<string, extendedCommand>;
+    database: typeof dbClient;
 
     constructor(config: typeof configFile) {
         super({
@@ -26,9 +29,25 @@ class NucleusClient extends Client {
             ]
         });
         this.config = config;
+        this.database = dbClient;
         this.commands = {
             ping
         };
+
+        // If -m or --migrate is passed, migrate the database
+        if (process.argv.includes("--migrate") || process.argv.includes("-m")) {
+            (async () => {
+                await migrate();
+                logs.success("Database migrated");
+            })();
+        }
+    }
+
+    async teardown() {
+        await close();
+        logs.info("Database connection closed");
+        this.destroy();
+        logs.info("Client destroyed");
     }
 
     async commandHandler(interaction: Interaction) {

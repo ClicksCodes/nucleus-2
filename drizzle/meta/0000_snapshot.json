@@ -1,0 +1,45 @@
+{
+    "id": "330ee1a8-f24f-403a-bf91-1117e11f1b26",
+    "prevId": "00000000-0000-0000-0000-000000000000",
+    "version": "7",
+    "dialect": "postgresql",
+    "tables": {
+        "public.server_settings": {
+            "name": "server_settings",
+            "schema": "",
+            "columns": {
+                "id": {
+                    "name": "id",
+                    "type": "text",
+                    "primaryKey": true,
+                    "notNull": true
+                },
+                "is_this_option_enabled": {
+                    "name": "is_this_option_enabled",
+                    "type": "text",
+                    "primaryKey": false,
+                    "notNull": true,
+                    "default": "'false'"
+                }
+            },
+            "indexes": {},
+            "foreignKeys": {},
+            "compositePrimaryKeys": {},
+            "uniqueConstraints": {
+                "server_settings_id_unique": {
+                    "name": "server_settings_id_unique",
+                    "nullsNotDistinct": false,
+                    "columns": ["id"]
+                }
+            }
+        }
+    },
+    "enums": {},
+    "schemas": {},
+    "sequences": {},
+    "_meta": {
+        "columns": {},
+        "schemas": {},
+        "tables": {}
+    }
+}

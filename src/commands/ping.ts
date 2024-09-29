@@ -1,9 +1,16 @@
 import { extendedCommand } from "@/utils/types.js";
 import { ChatInputCommandInteraction, SlashCommandBuilder } from "discord.js";
+import nucleusClient from "@/utils/client.js";
+import schema from "@/database/schema.js";
 
 const callback = async (interaction: ChatInputCommandInteraction) => {
     const isEphemeral = interaction.options.getBoolean("ephemeral") || false;
     const extraText = interaction.options.getString("message") || "";
+
+    await nucleusClient.database.update(schema.serverSettings).set({
+        id: "ping",
+        isThisOptionEnabled: isEphemeral.toString()
+    });
 
     await interaction.reply({
         content: "Pong! " + extraText,
