@@ -8,7 +8,7 @@ const migrationClient = postgres(dbPath, { max: 1 });
 await migrate(drizzle(migrationClient), { migrationsFolder: "./drizzle" });
 migrationClient.end();
 
-const queryClient = postgres(dbPath);
+const queryClient = postgres(dbPath, { onnotice: () => {}});
 queryClient.begin(() => {});
 const client = drizzle(queryClient);
 
