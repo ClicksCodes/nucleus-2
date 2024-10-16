@@ -1,0 +1,532 @@
+{
+    "id": "5aec66ef-9b5f-475f-a61c-171eaa9c9c33",
+    "prevId": "77a2d5a7-56b6-4699-a775-34169bd81f15",
+    "version": "7",
+    "dialect": "postgresql",
+    "tables": {
+        "public.channel_hourly_messages_average": {
+            "name": "channel_hourly_messages_average",
+            "schema": "",
+            "columns": {
+                "channel_id": {
+                    "name": "channel_id",
+                    "type": "text",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "day_of_week": {
+                    "name": "day_of_week",
+                    "type": "days",
+                    "typeSchema": "public",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "server": {
+                    "name": "server",
+                    "type": "text",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "hour_0": {
+                    "name": "hour_0",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_1": {
+                    "name": "hour_1",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_2": {
+                    "name": "hour_2",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_3": {
+                    "name": "hour_3",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_4": {
+                    "name": "hour_4",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_5": {
+                    "name": "hour_5",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_6": {
+                    "name": "hour_6",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_7": {
+                    "name": "hour_7",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_8": {
+                    "name": "hour_8",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_9": {
+                    "name": "hour_9",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_10": {
+                    "name": "hour_10",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_11": {
+                    "name": "hour_11",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_12": {
+                    "name": "hour_12",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_13": {
+                    "name": "hour_13",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_14": {
+                    "name": "hour_14",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_15": {
+                    "name": "hour_15",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_16": {
+                    "name": "hour_16",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_17": {
+                    "name": "hour_17",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_18": {
+                    "name": "hour_18",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_19": {
+                    "name": "hour_19",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_20": {
+                    "name": "hour_20",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_21": {
+                    "name": "hour_21",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_22": {
+                    "name": "hour_22",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_23": {
+                    "name": "hour_23",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "count": {
+                    "name": "count",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": true,
+                    "default": 0
+                }
+            },
+            "indexes": {},
+            "foreignKeys": {},
+            "compositePrimaryKeys": {
+                "channel_hourly_messages_average_channel_id_day_of_week_pk": {
+                    "name": "channel_hourly_messages_average_channel_id_day_of_week_pk",
+                    "columns": ["channel_id", "day_of_week"]
+                }
+            },
+            "uniqueConstraints": {}
+        },
+        "public.channel_hourly_messages_week": {
+            "name": "channel_hourly_messages_week",
+            "schema": "",
+            "columns": {
+                "channel_id": {
+                    "name": "channel_id",
+                    "type": "text",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "day_of_week": {
+                    "name": "day_of_week",
+                    "type": "days",
+                    "typeSchema": "public",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "server": {
+                    "name": "server",
+                    "type": "text",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "hour_0": {
+                    "name": "hour_0",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_1": {
+                    "name": "hour_1",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_2": {
+                    "name": "hour_2",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_3": {
+                    "name": "hour_3",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_4": {
+                    "name": "hour_4",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_5": {
+                    "name": "hour_5",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_6": {
+                    "name": "hour_6",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_7": {
+                    "name": "hour_7",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_8": {
+                    "name": "hour_8",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_9": {
+                    "name": "hour_9",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_10": {
+                    "name": "hour_10",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_11": {
+                    "name": "hour_11",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_12": {
+                    "name": "hour_12",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_13": {
+                    "name": "hour_13",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_14": {
+                    "name": "hour_14",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_15": {
+                    "name": "hour_15",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_16": {
+                    "name": "hour_16",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_17": {
+                    "name": "hour_17",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_18": {
+                    "name": "hour_18",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_19": {
+                    "name": "hour_19",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_20": {
+                    "name": "hour_20",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_21": {
+                    "name": "hour_21",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_22": {
+                    "name": "hour_22",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                },
+                "hour_23": {
+                    "name": "hour_23",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": 0
+                }
+            },
+            "indexes": {},
+            "foreignKeys": {},
+            "compositePrimaryKeys": {
+                "channel_hourly_messages_week_channel_id_day_of_week_pk": {
+                    "name": "channel_hourly_messages_week_channel_id_day_of_week_pk",
+                    "columns": ["channel_id", "day_of_week"]
+                }
+            },
+            "uniqueConstraints": {}
+        },
+        "public.guild_member_count": {
+            "name": "guild_member_count",
+            "schema": "",
+            "columns": {
+                "guild_id": {
+                    "name": "guild_id",
+                    "type": "text",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "date": {
+                    "name": "date",
+                    "type": "timestamp",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": "now()"
+                },
+                "count": {
+                    "name": "count",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false
+                }
+            },
+            "indexes": {
+                "date_index": {
+                    "name": "date_index",
+                    "columns": [
+                        {
+                            "expression": "date",
+                            "isExpression": false,
+                            "asc": true,
+                            "nulls": "last"
+                        }
+                    ],
+                    "isUnique": false,
+                    "concurrently": false,
+                    "method": "btree",
+                    "with": {}
+                },
+                "guild_id_index": {
+                    "name": "guild_id_index",
+                    "columns": [
+                        {
+                            "expression": "guild_id",
+                            "isExpression": false,
+                            "asc": true,
+                            "nulls": "last"
+                        }
+                    ],
+                    "isUnique": false,
+                    "concurrently": false,
+                    "method": "btree",
+                    "with": {}
+                }
+            },
+            "foreignKeys": {},
+            "compositePrimaryKeys": {
+                "guild_member_count_guild_id_date_pk": {
+                    "name": "guild_member_count_guild_id_date_pk",
+                    "columns": ["guild_id", "date"]
+                }
+            },
+            "uniqueConstraints": {}
+        },
+        "public.unique_members": {
+            "name": "unique_members",
+            "schema": "",
+            "columns": {
+                "guild_id": {
+                    "name": "guild_id",
+                    "type": "text",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "date": {
+                    "name": "date",
+                    "type": "timestamp",
+                    "primaryKey": false,
+                    "notNull": false,
+                    "default": "now()"
+                },
+                "count": {
+                    "name": "count",
+                    "type": "integer",
+                    "primaryKey": false,
+                    "notNull": false
+                }
+            },
+            "indexes": {},
+            "foreignKeys": {},
+            "compositePrimaryKeys": {
+                "unique_members_guild_id_date_pk": {
+                    "name": "unique_members_guild_id_date_pk",
+                    "columns": ["guild_id", "date"]
+                }
+            },
+            "uniqueConstraints": {}
+        }
+    },
+    "enums": {
+        "public.days": {
+            "name": "days",
+            "schema": "public",
+            "values": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+        }
+    },
+    "schemas": {},
+    "sequences": {},
+    "_meta": {
+        "columns": {},
+        "schemas": {},
+        "tables": {}
+    }
+}

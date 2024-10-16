@@ -12,8 +12,10 @@ import logs from "@/utils/logger.js";
 import dbClient from "@/utils/database.js";
 import { close } from "@/utils/database.js";
 import startAPI from "@/api/index.js";
+import startup from "@/utils/startup/index.js";
 
 import ping from "@/commands/ping.js";
+import summary from "@/commands/summary.js";
 
 class NucleusClient extends Client {
     config: typeof configFile;
@@ -32,7 +34,8 @@ class NucleusClient extends Client {
         this.config = config;
         this.database = dbClient;
         this.commands = {
-            ping
+            ping,
+            summary
         };
     }
 
@@ -112,6 +115,10 @@ class NucleusClient extends Client {
         logs.info("Starting API");
         await startAPI(this);
         logs.success("API started");
+    }
+
+    async startup() {
+        await startup(this);
     }
 }
 

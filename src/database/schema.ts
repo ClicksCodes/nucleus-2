@@ -1,4 +1,4 @@
-import { pgTable, text, integer, pgEnum, primaryKey, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, text, integer, pgEnum, primaryKey, timestamp, index } from "drizzle-orm/pg-core";
 
 export const days = pgEnum("days", ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]);
 
@@ -49,19 +49,21 @@ export const channelHourlyMessagesAverage = pgTable(
 export const guildMemberCount = pgTable(
     "guild_member_count",
     {
-        guildId: text("guildId").notNull(),
-        date: timestamp("date").defaultNow(),
-        count: integer("count")
+        guildId: text("guild_id").notNull(),
+        date: timestamp("date").defaultNow().notNull(),
+        count: integer("count").notNull()
     },
     (table) => ({
-        id: primaryKey({ columns: [table.guildId, table.date] })
+        id: primaryKey({ columns: [table.guildId, table.date] }),
+        dateIndex: index("date_index").on(table.date),
+        guildIdIndex: index("guild_id_index").on(table.guildId)
     })
 );
 
 export const uniqueMembers = pgTable(
     "unique_members",
     {
-        channelId: text("guildId").notNull(),
+        channelId: text("guild_id").notNull(),
         date: timestamp("date").defaultNow(),
         count: integer("count")
     },

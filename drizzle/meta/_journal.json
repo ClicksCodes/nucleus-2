@@ -15,6 +15,13 @@
             "when": 1727626877772,
             "tag": "0001_warm_paper_doll",
             "breakpoints": true
+        },
+        {
+            "idx": 2,
+            "version": "7",
+            "when": 1729109084093,
+            "tag": "0002_lucky_preak",
+            "breakpoints": true
         }
     ]
 }
